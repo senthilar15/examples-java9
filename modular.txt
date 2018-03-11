@@ -1,17 +1,44 @@
 Modularization :
 
-   Yet another named java platform component  , collection of code and data.
-   
+   Yet another named java platform component  , collection of code and data. Name is reverse dns name same as package name  , not neccessarily package name 
+   and module name must be same
+  
+
+module-info.java at the root level directory --> module descriptor
+  
 
 Why Modularization :
 
 1. Increased encapsulation.
-2. Targetting smaller devices
-3. Dependency check at runtime , creates dependency graph at initialization time
+2. Dependency check at runtime , creates dependency graph at initialization time
     (dependency check  not only at compile time but runtime too)
 	
 	Eg: remove a dependent jar once compiled , java runtime will check the module-info
 	 to build the dependency graph
+3. Targetting smaller devices.
+
+	 
+How classloader behaves now ?
+-------------------------------------
+	 
+Java platform packages itself modularized:
+--------------------------------------------
+
+java --list-modules 
+
+describe module
+---------------------------------  
+
+java -d java.base
+
+Base module in java.base each module depends /requires module 
+	 
+Constraints :
+--------------
+
+1. Module names must be unique
+2. No duplication of packages allowed in a different modular jars on same module path.
+3. If duplication of packakes available from different modular jar from different module path , access the first one 
 
 
 Public is no more public.
@@ -20,3 +47,26 @@ a. Export + public
 b. Qualified Export
 c. Reflection using open on Module and opens on package
 d. implied readability or transitive dependency
+
+compile time
+------------------
+export package  
+requires module
+
+Qualified 
+-------------------
+
+export <package> to <pakage> --> export this package to a partcular package to 
+   increase improved encapsulation. Useful when not ready to export any implementation classes.
+
+Transitive 
+-----------------
+
+requires transitive --> export all the packages it requires to module requires it
+
+
+
+Runtime 
+--------------------------
+open module 
+module opens pakage
