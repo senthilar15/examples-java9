@@ -1,0 +1,22 @@
+Modularization :
+
+   Yet another named java platform component  , collection of code and data.
+   
+
+Why Modularization :
+
+1. Increased encapsulation.
+2. Targetting smaller devices
+3. Dependency check at runtime , creates dependency graph at initialization time
+    (dependency check  not only at compile time but runtime too)
+	
+	Eg: remove a dependent jar once compiled , java runtime will check the module-info
+	 to build the dependency graph
+
+
+Public is no more public.
+
+a. Export + public
+b. Qualified Export
+c. Reflection using open on Module and opens on package
+d. implied readability or transitive dependency
