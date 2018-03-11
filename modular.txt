@@ -76,3 +76,23 @@ Runtime
 --------------------------
 open module 
 module opens pakage
+
+
+
+Service loader API
+----------------------------------
+
+1. Looks for no-arg constructor or look for a method provider() to create instance.
+2. "uses" says what interface using --> needs to be done at consumer module end.
+3. "provides" <interface> "with" <class> says that it provides an implementation of particular interface 
+
+
+
+
+Jlink
+-------------------------------------
+
+
+
+automatic modules
+--------------------------------------
