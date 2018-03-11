@@ -9,7 +9,11 @@ module-info.java at the root level directory --> module descriptor
 
 Why Modularization :
 
-1. Increased encapsulation.
+1. Increased encapsulation both at compile time and runtime.
+
+providing encapsulation at compile time using exports , and at runtime using open on module or at opens inside a module at package level
+
+
 2. Dependency check at runtime , creates dependency graph at initialization time
     (dependency check  not only at compile time but runtime too)
 	
@@ -36,12 +40,14 @@ Base module in java.base each module depends /requires module
 Constraints :
 --------------
 
-1. Module names must be unique
-2. No duplication of packages allowed in a different modular jars on same module path.
-3. If duplication of packakes available from different modular jar from different module path , access the first one 
+1. Module names must be unique.
+2. No duplication of module name allowed in same module path.
+3. If two different module path has the same module name , takes the first one and ignores the second.
+4. No duplication of packages allowed across modules.
 
 
-Public is no more public.
+
+Public is no more public
 
 a. Export + public
 b. Qualified Export
